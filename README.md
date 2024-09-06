@@ -1,6 +1,6 @@
 ### PrettyWindow
-Example implementation of WinApi windows with Mica, Acrylic or AltMica effects, with a dark or light theme.
+This is a simple example of implementing WinAPI windows with Mica, Acrylic, or AltMica effects, supporting both dark and light themes.
 
-this is a simple example of creating such a window in which you can draw using d2d1,
-when I wanted to repeat such windows I faced the problem that they do not get anything to draw,
-I did not find a ready-made WinApi C++ solution without WinRT on the Internet, I hope this will help you.
+This example demonstrates the creation of a window where you can draw using D2D1.
+When I tried to recreate such windows, I encountered the issue of nothing being drawn.
+I couldn't find a ready-made WinAPI C++ solution without WinRT on the internet, so I hope this will help you.
