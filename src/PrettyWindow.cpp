@@ -33,7 +33,7 @@ bool PrettyWindow::OpenAsync()
 			m_hwnd = CreateWindowExW(
 				WS_EX_COMPOSITED | WS_EX_LAYERED,
 				wc.lpszClassName,
-				L"Pretty Window",
+				m_text.c_str(),
 				WS_OVERLAPPEDWINDOW,
 				CW_USEDEFAULT,
 				CW_USEDEFAULT,
