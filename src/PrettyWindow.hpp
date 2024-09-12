@@ -49,6 +49,7 @@ public:
 	void SetBackdrop(WindowBackdrop backdrop);
 	void SetText(const std::wstring& text);
 	void SetMinSize(POINT size);
+	void SetSize(POINT size);
 
 	bool IsRunning() const;
 private:
@@ -59,6 +60,7 @@ private:
 
 	POINT m_screen = {};
 	POINT m_minSize = { 400, 400 };
+	POINT m_size = { 800, 600 };
 	WindowTheme m_theme = WindowTheme::AUTO;
 	WindowBackdrop m_backdrop = WindowBackdrop::MICA;
 	std::wstring m_text = L"Pretty Window";

@@ -11,6 +11,8 @@ PrettyWindow::PrettyWindow()
 
 PrettyWindow::~PrettyWindow()
 {
+	if (m_isRunning) this->Close();
+	if (m_wndFuture.valid()) m_wndFuture.wait();
 }
 
 bool PrettyWindow::OpenAsync()
@@ -37,8 +39,8 @@ bool PrettyWindow::OpenAsync()
 				WS_OVERLAPPEDWINDOW,
 				CW_USEDEFAULT,
 				CW_USEDEFAULT,
-				CW_USEDEFAULT,
-				CW_USEDEFAULT,
+				m_size.x,
+				m_size.y,
 				nullptr,
 				nullptr,
 				wc.hInstance,
@@ -137,6 +139,14 @@ void PrettyWindow::SetText(const std::wstring& text)
 void PrettyWindow::SetMinSize(POINT size)
 {
 	m_minSize = size;
+}
+
+void PrettyWindow::SetSize(POINT size)
+{
+	m_size = size;
+
+	if (!m_isRunning) return;
+	SetWindowPos(m_hwnd, nullptr, 0, 0, m_size.x, m_size.y, SWP_NOMOVE | SWP_NOZORDER);
 }
 
 bool PrettyWindow::IsRunning() const
